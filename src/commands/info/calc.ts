@@ -6,7 +6,7 @@ export default new Command({
     description: "Simple calculator that uses button",
     async run({ interaction, client }) {
         simple.calculator(interaction, {
-            embedColor: "GREEN",
+            embedColor: "BLUE",
             embedFooter: `${interaction.user.username}`,
             slash: true,
         })
