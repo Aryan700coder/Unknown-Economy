@@ -83,8 +83,6 @@ export default new Command({
     })
 
     let amount = Math.floor(Math.random() * (1500 - 500 + 1)) + 500;
-
-    collector.on('collect', async i => {
         collector.on('collect', async i => {
             let sendEmbed = async (location) =>  {
               let embed = new MessageEmbed()
@@ -119,6 +117,5 @@ export default new Command({
             if(i.customId == chosenLocations[1].name) return sendEmbed(chosenLocations[1])
             if(i.customId == chosenLocations[2].name) return sendEmbed(chosenLocations[2])
           })
-    })
   },
 });
