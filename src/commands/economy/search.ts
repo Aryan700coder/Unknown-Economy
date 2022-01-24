@@ -70,10 +70,30 @@ export default new Command({
     .setStyle(`PRIMARY`)
     .setLabel(`${chosenLocations[2].name}`)
 
+    let disabled1 = new MessageButton()
+    .setCustomId(`${chosenLocations[0].name}`)
+    .setStyle(`PRIMARY`)
+    .setLabel(`${chosenLocations[0].name}`)
+    .setDisabled(true);
+
+    let disabled2 = new MessageButton()
+    .setCustomId(`${chosenLocations[1].name}`)
+    .setStyle(`PRIMARY`)
+    .setLabel(`${chosenLocations[1].name}`)
+    .setDisabled(true);
+
+    let disabled3 = new MessageButton()
+    .setCustomId(`${chosenLocations[2].name}`)
+    .setStyle(`PRIMARY`)
+    .setLabel(`${chosenLocations[2].name}`)
+    .setDisabled(true)
+
     let searchRow = new MessageActionRow()
     .addComponents(
       search1, search2, search3
     )
+
+    let disabledBtn = new MessageActionRow().addComponents(disabled1, disabled2, disabled3)
 
     let sentMsg = await interaction.channel.send({content: `**${interaction.user.username},** where do you want to search?\n*pick an option below to start searching that location!*`, components: [searchRow]})
 
@@ -93,7 +113,7 @@ export default new Command({
               })
               .setTimestamp()
               .setColor("RANDOM")
-              i.update({embeds: [embed], components: [], content: " "})
+              i.update({embeds: [embed], components: [disabledBtn], content: " "})
               try {
                 await balanceConfig.findOneAndUpdate(
                     {
