@@ -10,7 +10,9 @@ export default new Event("interactionCreate", async (interaction) => {
     if (interaction.isCommand()) {
         await interaction.deferReply();
         const command = client.commands.get(interaction.commandName);
-        if (!command) console.log("[Command Logger] : That Command dosn't exist".red)
+        if (!command) {
+            return console.log("[Command Logger] : That Command dosn't exist")
+        }
 
         const userData = await balanceConfig.findOne({ userId: interaction.user.id });
 
