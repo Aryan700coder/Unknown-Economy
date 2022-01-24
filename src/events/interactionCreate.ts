@@ -16,19 +16,19 @@ export default new Event("interactionCreate", async (interaction) => {
 
         const userData = await balanceConfig.findOne({ userId: interaction.user.id });
 
-        const randomAmt = Math.floor(Math.random() * 110) + 1;
-
-    await balanceConfig.findOneAndUpdate({ userId: interaction.user.id }, {
-        $inc: {
-            maxBank: randomAmt,
-        }
-    })
-
         if(!userData) {
             await balanceConfig.create({
                 userId: interaction.user.id,
             });
         }
+
+        const randomAmt = Math.floor(Math.random() * 110) + 1;
+
+        await balanceConfig.findOneAndUpdate({ userId: interaction.user.id }, {
+            $inc: {
+                maxBank: randomAmt,
+            }
+        })
 
         console.log(`[Command Logger] : ${interaction.user.username} used ${interaction.commandName} command!`)
 
