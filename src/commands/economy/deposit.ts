@@ -22,13 +22,17 @@ export default new Command({
 
     let data = await balanceConfig.findOne({ userId: interaction.user.id });
 
-    let { wallet } = data;
+    let { wallet, maxBank } = data;
 
     if(amount > wallet) return interaction.followUp({
         content: "Your amount must not be greater then wallet"
     });
 
     if(amount < 0) return interaction.followUp("You cannot deposit money less then 0");
+
+    if(amount > maxBank) return interaction.followUp({
+        content: "You cannot add more money due to bank limit.\nYou can chat and use commands to increase bank space"
+    })
       try {
           await balanceConfig.findOneAndUpdate({ userId: interaction.user.id }, {
               $inc: {
