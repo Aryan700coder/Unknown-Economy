@@ -1,7 +1,7 @@
 # Info
 I don't know lmao why I made this economy bot.
 
-# Seup
+# Setup
 
 Clone or Download this repository
 
