@@ -6,9 +6,7 @@ import {
     PermissionResolvable
 } from "discord.js";
 import { ExtendedClient } from "../structures/Client";
-
-import { Timeout } from "../structures/Cooldown";
-
+import { categories } from "../structures/categories";
 /**
  * {
  *  name: "commandname",

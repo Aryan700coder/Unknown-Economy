@@ -1,6 +1,6 @@
 import { MessageEmbed } from "discord.js";
 import { Command } from "../../structures/Command";
-
+import { categories } from "../../structures/categories";
 export default new Command({
     name: "help",
     description: "Help command",
@@ -11,7 +11,7 @@ export default new Command({
         });
 
         const embed = new MessageEmbed()
-        .setTitle(`All the commands for ${client.user.username}`)
+        .setTitle(`All the commands for **__${client.user.username}__**`)
         .setDescription(`${command.join("\n")}`)
         .setColor('RANDOM')
 

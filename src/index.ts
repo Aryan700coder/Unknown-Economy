@@ -7,3 +7,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 client.start();
 connectToDb(process.env.mongouri);
+
+/**
+ * ;-;
+ */
