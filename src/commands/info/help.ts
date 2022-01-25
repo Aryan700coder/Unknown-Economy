@@ -5,16 +5,15 @@ export default new Command({
     name: "help",
     description: "Help command",
     run: async ({ interaction, client }) => {
-        const command = client.commands.map(cmd => `\`${cmd.name}\``);
+
+        const command = client.commands.map(cmd => {
+            return `\`${cmd.name}\`\n<:reply:931114100719747092> ${cmd.description}`
+        });
 
         const embed = new MessageEmbed()
-        .setTitle(`Information of **__${client.user.username}__**`)
-        .setDescription(`💪 **__Features__**\n> **${client.commands.size}+ Commands**\nFree, Meaning you don't need to pay anything\`\`\`yaml\nAre you new to this bot?\nWrite /guide for guide on how to use this bot.\`\`\``)
-        .addField("Commands for Honey Bot", `${command.join(" | ")}`, true)
-        .setColor("BLURPLE")
-        .setFooter({
-            text: "Honey Bot Op"
-        })
+        .setTitle(`All the commands for ${client.user.username}`)
+        .setDescription(`${command.join("\n")}`)
+        .setColor('RANDOM')
 
         interaction.followUp({
             embeds: [embed]

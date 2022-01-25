@@ -95,7 +95,7 @@ export default new Command({
 
     let disabledBtn = new MessageActionRow().addComponents(disabled1, disabled2, disabled3)
 
-    let sentMsg = await interaction.channel.send({content: `**${interaction.user.username},** where do you want to search?\n*pick an option below to start searching that location!*`, components: [searchRow]})
+    let sentMsg = await interaction.channel.send({content: `**where do you want to search?**\n*pick an option below to start searching that location!*`, components: [searchRow]})
 
     let collector = sentMsg.createMessageComponentCollector({
       time: 15000,
