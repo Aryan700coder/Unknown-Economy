@@ -77,7 +77,6 @@ const paginationEmbed = async (
         buttonList[1].setDisabled(true)
       );
       curPage.edit({
-        embeds: pages[0],
         components: [disabledRow],
       });
     }
